@@ -74,9 +74,9 @@ def fill_data():
 
     def seed_grades():
         # дата начала учебного процесса
-        start_date = datetime.strptime("2020-09-01", "%Y-%m-%d")
+        start_date = datetime.strptime("2022-09-01", "%Y-%m-%d")
         # дата окончания учебного процесса
-        end_date = datetime.strptime("2021-05-25", "%Y-%m-%d")
+        end_date = datetime.strptime("2023-05-25", "%Y-%m-%d")
         d_range = date_range(start=start_date, end=end_date)
         subject_ids = session.scalars(select(Subject.id)).all()
         student_ids = session.scalars(select(Student.id)).all()
