@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "database-crud-operations-console"
+version = "0.1.0"
+description = ""
+authors = ["remmover <77463027+remmover@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "database_crud_operations_console"}]
+
+[tool.poetry.dependencies]
+python = "~3.11.3"
+sqlalchemy = "~2.0.17"
+alembic = "~1.11.1"
+psycopg2 = "~2.9.6"
+faker = "^18.11.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
