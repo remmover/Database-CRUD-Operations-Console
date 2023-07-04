@@ -31,10 +31,16 @@ def date_range(start: date, end: date) -> list:
 
 def fill_data():
     # Не все данные будут динамические. Создаем списки предметов и групп
-    subjects = ['Вища математика', 'Хімія', 'Економіка підприємства', 'Обчислювальна математика', 'Історія України',
-                   'Теоретична механіка', 'Менеджмент організацій', 'Системне програмування']
+    subjects = [
+        "Інтернет речей",
+        "Програмування мобільних пристроїв",
+        "Програмування для інтернет",
+        "Моделювання та аналіз програмного забезпечення",
+        "Якість програмного забезпечення та тестування",
+        "Операційні системи",
+    ]
 
-    groups = ['ВВ1', 'ДД33', 'АА5']
+    groups = ["Б-128", "Б-228", "Б-328"]
 
     # Создаем объект библиотеки Faker. В качестве параметра передаем local 'uk-UA'
     # Больше - https://faker.readthedocs.io/en/master/locales.html
@@ -72,11 +78,11 @@ def fill_data():
         # дата окончания учебного процесса
         end_date = datetime.strptime("2021-05-25", "%Y-%m-%d")
         d_range = date_range(start=start_date, end=end_date)
-        discipline_ids = session.scalars(select(Subject.id)).all()
+        subject_ids = session.scalars(select(Subject.id)).all()
         student_ids = session.scalars(select(Student.id)).all()
 
         for d in d_range:  # пройдемся по каждой дате
-            random_id_subject = choice(discipline_ids)
+            random_id_subject = choice(subject_ids)
             random_ids_student = [choice(student_ids) for _ in range(5)]
             # проходимся по списку "везучих" студентов, добавляем их в результирующий список
             # и генерируем оценку
